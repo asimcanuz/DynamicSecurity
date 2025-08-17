@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:latest
+    container_name: dynamic-security-db
+    restart: always
+    environment:
+      POSTGRES_DB: dynamicsecurity
+      POSTGRES_USER: dynamicuser
+      POSTGRES_PASSWORD: dynamicpassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - dynamic-security-db-data:/var/lib/postgresql/data
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  redis:
+    image: redis:7
+    container_name: ds-redis
+    ports: ["6379:6379"]
+
+
+volumes:
+  dynamic-security-db-data:
+    driver: local
