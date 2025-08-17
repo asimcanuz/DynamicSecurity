@@ -1,10 +1,11 @@
-package org.asodev.dynamicsecurity.dto;
+package org.asodev.dynamicsecurity.payload.request;
 
 import org.asodev.dynamicsecurity.interceptor.ValidPassword;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
+import org.asodev.dynamicsecurity.interceptor.ValidPhone;
 
 @Builder
 public record SignupRequest(
@@ -20,7 +21,7 @@ public record SignupRequest(
         @NotBlank
         @Email
         String email,
-        @Number
+        @ValidPhone
         String phoneNumber) {
 
 }

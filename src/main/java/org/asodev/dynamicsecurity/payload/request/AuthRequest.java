@@ -1,10 +1,10 @@
-package org.asodev.dynamicsecurity.dto;
+package org.asodev.dynamicsecurity.payload.request;
 
 import org.asodev.dynamicsecurity.interceptor.ValidPassword;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record LoginRequest(
+public record AuthRequest(
         @NotBlank
         String username,
         @NotBlank
