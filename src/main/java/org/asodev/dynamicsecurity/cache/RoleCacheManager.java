@@ -20,9 +20,6 @@ public class RoleCacheManager {
     private static final String ALL_ROLES_KEY = "allRoles";
     private static final String ROLE_KEY_PREFIX = "role:";
 
-    /**
-     * Retrieves all roles from cache
-     */
     public List<Role> getRolesFromCache() {
         Cache cache = cacheManager.getCache(CACHE_NAME);
         if (cache == null) {
@@ -34,14 +31,10 @@ public class RoleCacheManager {
             return Collections.emptyList();
         }
 
-        @SuppressWarnings("unchecked")
         List<Role> roles = (List<Role>) valueWrapper.get();
         return roles != null ? roles : Collections.emptyList();
     }
 
-    /**
-     * Updates the cache with the provided roles
-     */
     public void refreshRolesCache(List<Role> roles) {
         Cache cache = cacheManager.getCache(CACHE_NAME);
         if (cache != null) {
@@ -49,9 +42,6 @@ public class RoleCacheManager {
         }
     }
 
-    /**
-     * Removes all roles from cache
-     */
     public void evictRolesCache() {
         Cache cache = cacheManager.getCache(CACHE_NAME);
         if (cache != null) {
@@ -59,9 +49,6 @@ public class RoleCacheManager {
         }
     }
 
-    /**
-     * Gets a specific role by id from cache
-     */
     public Optional<Role> getRoleByIdFromCache(Long roleId) {
         Cache cache = cacheManager.getCache(CACHE_NAME);
         if (cache == null) {
@@ -75,9 +62,6 @@ public class RoleCacheManager {
                 .map(wrapper -> (Role) wrapper.get());
     }
 
-    /**
-     * Stores a specific role in cache
-     */
     public void cacheRoleById(Role role) {
         if (role == null || role.getId() == null) {
             return;
@@ -90,10 +74,8 @@ public class RoleCacheManager {
         }
     }
 
-    /**
-     * Evicts a specific role from cache
-     */
-    public void evictRoleByIdFromCache(Long roleId) {
+    // Renamed method
+    public void evictRoleByIdCache(Long roleId) {
         Cache cache = cacheManager.getCache(CACHE_NAME);
         if (cache != null) {
             String key = ROLE_KEY_PREFIX + roleId;
@@ -101,9 +83,6 @@ public class RoleCacheManager {
         }
     }
 
-    /**
-     * Clears the entire roles cache
-     */
     public void clearAllRolesCache() {
         Cache cache = cacheManager.getCache(CACHE_NAME);
         if (cache != null) {

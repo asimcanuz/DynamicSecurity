@@ -1,8 +1,8 @@
 package org.asodev.dynamicsecurity.service;
 
-import org.asodev.dynamicsecurity.dto.LoginRequest;
-import org.asodev.dynamicsecurity.dto.SignupRequest;
-import org.asodev.dynamicsecurity.dto.TokenResponse;
+import org.asodev.dynamicsecurity.payload.request.LoginRequest;
+import org.asodev.dynamicsecurity.payload.request.SignupRequest;
+import org.asodev.dynamicsecurity.payload.response.TokenResponse;
 import org.asodev.dynamicsecurity.model.Role;
 import org.asodev.dynamicsecurity.model.User;
 import org.asodev.dynamicsecurity.repository.RoleRepository;
@@ -76,4 +76,9 @@ public class AuthService {
       throw new IllegalArgumentException("Authentication failed");
     }
   }
+
+  public void logoutUser() {
+        SecurityContextHolder.clearContext();
+        // Additional logout logic can be added here if needed
+    }
 }

@@ -26,7 +26,7 @@ public class RoleController {
     }
 
     @PostMapping
-    @PreAuthorize("hasAuthority('role.create')")
+    @PreAuthorize("hasAuthority('role.create') or hasRole('ROLE_USER')")
     public ResponseEntity<Void> createRole(CreateRoleRequest roleRequest) {
         roleService.create(roleRequest);
         return ResponseEntity.ok().build();
