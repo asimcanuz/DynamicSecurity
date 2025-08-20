@@ -16,10 +16,10 @@ public class PhoneConstraintValidator implements ConstraintValidator<ValidPhone,
     @Override
     public boolean isValid(String phone, ConstraintValidatorContext context) {
         if (phone == null || phone.isBlank()) {
-            return true; // use @NotBlank if you want to reject empty values
+            return true;
         }
         String trimmed = phone.trim();
-        // Prefer E.164; fall back to flexible pattern
+
         return trimmed.matches(E164_REGEX) || trimmed.matches(FLEXIBLE_REGEX);
     }
 }

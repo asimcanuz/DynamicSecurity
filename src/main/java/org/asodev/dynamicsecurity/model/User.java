@@ -53,7 +53,6 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // Rol + (istersen) rolün permission’larını authority olarak ekle
         Set<GrantedAuthority> auths = new HashSet<>();
         if (role != null) {
             auths.add(new SimpleGrantedAuthority(role.getName()));
