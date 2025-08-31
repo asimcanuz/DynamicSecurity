@@ -33,7 +33,7 @@ public class RoleController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize(" hasAuthority('role.read')")
+    @PreAuthorize("hasAuthority('role.read')")
     public ResponseEntity<Role> getById(@PathVariable Long id){
     Role role = roleService.getRoleById(id);
         return ResponseEntity.ok(role);

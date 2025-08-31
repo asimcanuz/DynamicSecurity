@@ -4,14 +4,13 @@ TECH STACK
 - spring boot, spring security, spring data jpa, postgresql, redis, jwt, flyway, elasticsearch, logstash, kibana, kafka, docker, kubernetes, twillio(sms,email?(alt. mailgun))
 
 **AUTH**  
-* [ ] POST /auth/login - kullanici girisi ve token olusturma
-* [ ] POST /auth/register - yeni kullanici kaydi
-* [ ] POST /auth/logout - guvenli cikis ve token iptal etme
-* [ ] POST /auth/refresh - access token'i yenileme
-* [ ] GET /auth/verify-token - token geçerliliğini kontrol etme
-* [ ] POST /auth/activate-account - hesap aktivasyonu
-* [ ] POST /auth/deactivate-account - hesabi devre disi birakma
-* [ ] GET /auth/verify-email - e-posta dogrulama
+* [X] POST /auth/login - kullanici girisi ve token olusturma
+* [X] POST /auth/register - yeni kullanici kaydi
+* [X] POST /auth/logout - guvenli cikis ve token iptal etme
+* [X] POST /auth/refresh - access token'i yenileme
+* [X] POST /auth/activate-account - hesap aktivasyonu
+* [X] POST /auth/deactivate-account - hesabi devre disi birakma
+* [X] GET /auth/verify-email - e-posta dogrulama
 * [ ] POST /auth/resend-verification - dogrulama e-postasini yeniden gonderme
 * [ ] POST /auth/forgot-password - sifre sifirlama bağlantisi isteme
 * [ ] POST /auth/reset-password - sifre sifirlama
